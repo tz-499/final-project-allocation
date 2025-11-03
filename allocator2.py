@@ -190,7 +190,7 @@ for proj in project_to_lists:
 final_df = pd.DataFrame(project_to_lists)
 
 # Write Excel file (requires: pip install openpyxl)
-final_df.to_excel("final_groups_constrained.xlsx", index=False)
+final_df.to_excel("Allocation 2.xlsx", index=False)
 
 print("Wrote final_groups_constrained.xlsx")
 

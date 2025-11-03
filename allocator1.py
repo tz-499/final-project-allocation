@@ -100,10 +100,12 @@ for n in range(1, 6):  # preference ranks 1..5
                 pref_type = quant_bucket(quant_pref_map[person])
                 if pref_type == "STRICT":
                     # Check capacity
-                    cap = capacity_map.get(proj, DEFAULT_CAP)
+r                    cap = capacity_map.get(proj, DEFAULT_CAP)
                     if len(constrained_output_map[proj]) < cap:
                         constrained_output_map[proj].add(email_map.get(person, person))
                         unmatched_constrained.remove(person)
+    print(f"[Quant pass] After Quant Round {n} there are {len(unmatched_constrained)} unmatched.")
+
 
 # 5b. Greedy fill for remaining students, in preference order (1..5)
 # - skip quant for "NEVER" people
@@ -259,6 +261,6 @@ for proj in project_to_lists:
 final_df = pd.DataFrame(project_to_lists)
 
 # Write DataFrame to Excel (requires `pip install openpyxl`)
-final_df.to_excel("final_groups.xlsx", index=False)
+final_df.to_excel("Allocation 1.xlsx", index=False)
 
 print("\nWrote final_groups.xlsx")
